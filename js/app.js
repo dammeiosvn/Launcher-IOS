@@ -39,6 +39,8 @@ let quoteWeek = -1;
 let sysPage = 1;
 let online = [];
 let onlineTitle = "";
+let ignoreRunUntil = 0;
+let deleting = false;
 
 function t(key) { return i18n[key] || ""; }
 function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
@@ -173,7 +175,10 @@ document.getElementById("ok").onclick = function (e) {
   img.src = art.dataset.raw || localStorage.getItem(BG) || ILLU;
 };
 
-function run(id) { location.href = "shortcuts://run-shortcut?name=" + encodeURIComponent(SHORTCUT) + "&input=text&text=" + encodeURIComponent(id); }
+function run(id) {
+  if (Date.now() < ignoreRunUntil) return;
+  location.href = "shortcuts://run-shortcut?name=" + encodeURIComponent(SHORTCUT) + "&input=text&text=" + encodeURIComponent(id);
+}
 function render() {
   const list = load();
   dock.className = "dock " + mode() + (renaming ? " renaming" : "");
@@ -182,15 +187,24 @@ function render() {
     const b = document.createElement("button");
     b.className = "app"; b.type = "button";
     b.innerHTML = (app.icon ? '<img src="' + app.icon + '" alt="">' : '<span class="bubble">●</span>') + "<span>" + (app.name || "") + "</span>";
-    b.onclick = function () {
+    b.onclick = function (e) {
+      if (Date.now() < ignoreRunUntil) { e.preventDefault(); e.stopPropagation(); return; }
       if (!renaming) { run(app.bundleId); return; }
       const name = prompt(t("displayName"), app.name);
       if (name == null) return;
       const all = load(); all[i].name = name.trim() || all[i].name; save(all); render();
     };
-    var hold;
-    b.ontouchstart = function () { if (renaming) return; hold = setTimeout(function () { remove(i); }, 600); };
-    b.ontouchend = function () { clearTimeout(hold); };
+    var hold, fired = false;
+    b.ontouchstart = function () {
+      if (renaming) return;
+      fired = false;
+      hold = setTimeout(function () { fired = true; remove(i); }, 600);
+    };
+    b.ontouchmove = function () { clearTimeout(hold); };
+    b.ontouchend = function (e) {
+      clearTimeout(hold);
+      if (fired) { e.preventDefault(); ignoreRunUntil = Date.now() + 800; }
+    };
     b.oncontextmenu = function (e) { e.preventDefault(); if (!renaming) remove(i); };
     dock.appendChild(b);
   });
@@ -199,8 +213,14 @@ function render() {
   document.getElementById("modeList").classList.toggle("on", mode() === "list");
 }
 function remove(i) {
+  if (deleting) return;
+  deleting = true;
+  ignoreRunUntil = Date.now() + 900;
   const list = load();
-  if (!confirm(t("deleteAsk").replace("{name}", list[i].name))) return;
+  const ok = !!(list[i] && confirm(t("deleteAsk").replace("{name}", list[i].name)));
+  ignoreRunUntil = Date.now() + 900;
+  deleting = false;
+  if (!ok) return;
   list.splice(i, 1); save(list); render();
 }
 
