@@ -1,1 +1,33 @@
-
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Settings",
+  "confirm": "Confirm",
+  "choosePhoto": "Choose photo",
+  "addApp": "Add app",
+  "searchPlaceholder": "Search apps",
+  "grid": "Grid",
+  "list": "List",
+  "rename": "Rename",
+  "about": "About",
+  "version": "Version 1.0",
+  "author": "Author",
+  "aboutBody": "Webclip launcher opens apps through the Quick Launcher shortcut. Add up to 8 apps from the system list or the App Store and send the bundle ID to the shortcut. Change the cover photo and drag to frame it, switch between grid and list, rename labels, and follow the device light or dark appearance.",
+  "displayName": "Display name",
+  "deleteAsk": "Delete {name}?",
+  "catalogMissing": "Could not read System/SystemApp.json",
+  "systemApps": "System apps",
+  "appStore": "App Store",
+  "quotes": [
+    "Slow down enough to hear what you already know.",
+    "A new day need not be perfect. It only needs to begin.",
+    "Peace is a choice, not a destination.",
+    "Small work done daily beats a grand plan left unfinished.",
+    "Letting go of what is not yours is how you keep yourself.",
+    "Happiness usually sits in what you are doing, not what you are waiting for.",
+    "Each morning is a chance to rewrite your story.",
+    "Enough is its own kind of wealth.",
+    "Slow and steady still beats fast and lost.",
+    "Be kind to yourself first. The world grows gentler after that."
+  ]
+}
