@@ -5,6 +5,8 @@ const BG = "ql_bg";
 const MODE = "ql_mode";
 const MAX = 8;
 const JSON_URL = "System/SystemApp.json";
+const PAGE = 8;
+const ONLINE = 10;
 const FALLBACK = "en-GB";
 const SUPPORTED = ["ar","bn-BD","cs-CZ","da-DK","de-DE","el-GR","en-GB","en-US","es-ES","es-MX","fa-IR","fi-FI","fil-PH","fr-CA","fr-FR","hi-IN","hu-HU","id-ID","it-IT","ja","ko-KR","ms-MY","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru","sv-SE","sw-KE","th-TH","tr-TR","uk-UA","vi-VN","zh-CN","zh-TW"];
 const ALIAS = {
@@ -34,6 +36,9 @@ let hintT, renaming = false, drag = null;
 let i18n = {};
 let lang = FALLBACK;
 let quoteWeek = -1;
+let sysPage = 1;
+let online = [];
+let onlineTitle = "";
 
 function t(key) { return i18n[key] || ""; }
 function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
@@ -201,8 +206,14 @@ function remove(i) {
 
 function openSheet() {
   if (load().length >= MAX) return;
-  closePops(); mask.classList.add("on"); sheet.classList.add("on"); q.value = ""; paintResults("");
-  setTimeout(function () { q.focus(); }, 200);
+  closePops();
+  sysPage = 1;
+  online = [];
+  onlineTitle = "";
+  mask.classList.add("on");
+  sheet.classList.add("on");
+  q.value = "";
+  paintResults("");
 }
 function closeSheet() { mask.classList.remove("on"); sheet.classList.remove("on"); menu.classList.remove("on"); info.classList.remove("on"); }
 function closePops() { menu.classList.remove("on"); info.classList.remove("on"); }
@@ -216,43 +227,91 @@ done.onclick = function () { renaming = false; done.classList.remove("on"); rend
 document.getElementById("about").onclick = function () { menu.classList.remove("on"); info.classList.add("on"); mask.classList.add("on"); };
 
 var timer;
-q.oninput = function () { clearTimeout(timer); timer = setTimeout(function () { paintResults(q.value.trim()); searchStore(q.value.trim()); }, 250); };
+q.onfocus = function () { if (!q.value.trim()) suggestOnline(); };
+q.oninput = function () {
+  clearTimeout(timer);
+  sysPage = 1;
+  timer = setTimeout(function () {
+    const term = q.value.trim();
+    if (term.length >= 2) searchStore(term);
+    else if (!term) suggestOnline();
+    else { online = []; paintResults(term); }
+  }, 250);
+};
+function systemHits(term) {
+  const qn = (term || "").toLowerCase();
+  return catalog.filter(function (a) { return !qn || a.name.toLowerCase().indexOf(qn) >= 0 || a.bundleId.toLowerCase().indexOf(qn) >= 0; });
+}
+function hitButton(hit) {
+  const b = document.createElement("button");
+  b.className = "hit";
+  b.type = "button";
+  b.innerHTML = '<img src="' + (hit.icon || "") + '" alt=""><div><b>' + (hit.name || "") + "</b><span>" + (hit.bundleId || "") + "</span></div>";
+  b.onclick = function () { addApp(hit); };
+  return b;
+}
 function paintResults(term) {
   results.innerHTML = "";
-  const qn = term.toLowerCase();
-  const hits = catalog.filter(function (a) { return !qn || a.name.toLowerCase().indexOf(qn) >= 0 || a.bundleId.toLowerCase().indexOf(qn) >= 0; }).slice(0, 30);
-  if (!catalog.length) { results.innerHTML = '<div class="empty">' + t("catalogMissing") + "</div>"; return; }
-  const label = document.createElement("div"); label.className = "label"; label.textContent = t("systemApps"); results.appendChild(label);
-  hits.forEach(function (hit) {
-    const b = document.createElement("button"); b.className = "hit"; b.type = "button";
-    b.innerHTML = '<img src="' + hit.icon + '" alt=""><div><b>' + hit.name + "</b><span>" + hit.bundleId + "</span></div>";
-    b.onclick = function () { addApp(hit); };
-    results.appendChild(b);
-  });
+  const hits = systemHits(term);
+  if (!catalog.length) {
+    results.innerHTML = '<div class="empty">' + t("catalogMissing") + "</div>";
+  } else {
+    const label = document.createElement("div");
+    label.className = "label";
+    label.textContent = t("systemApps");
+    results.appendChild(label);
+    hits.slice(0, sysPage * PAGE).forEach(function (hit) { results.appendChild(hitButton(hit)); });
+    if (sysPage * PAGE < hits.length) {
+      const more = document.createElement("button");
+      more.className = "more";
+      more.type = "button";
+      more.textContent = t("seeMore");
+      more.onclick = function () { sysPage += 1; paintResults(q.value.trim()); };
+      results.appendChild(more);
+    }
+  }
+  if (!online.length) return;
+  const label = document.createElement("div");
+  label.className = "label";
+  label.textContent = onlineTitle || t("appStore");
+  results.appendChild(label);
+  online.slice(0, ONLINE).forEach(function (hit) { results.appendChild(hitButton(hit)); });
 }
 function storeCountry() {
   const parts = String(lang).split("-");
   return (parts[1] || "gb").toLowerCase();
 }
+function mapStore(data) {
+  return (data.results || []).filter(function (x) { return x.bundleId; }).slice(0, ONLINE).map(function (hit) {
+    return { name: shortName(hit.trackName), bundleId: hit.bundleId, icon: hit.artworkUrl100 || hit.artworkUrl60 || "" };
+  });
+}
 function searchStore(term) {
-  if (term.length < 2) return;
   const cb = "ql_" + Date.now();
   const old = document.getElementById("qljsonp"); if (old) old.remove();
   window[cb] = function (data) {
     delete window[cb];
     const node = document.getElementById("qljsonp"); if (node) node.remove();
-    const hits = (data.results || []).filter(function (x) { return x.bundleId; }).slice(0, 8);
-    if (!hits.length) return;
-    const label = document.createElement("div"); label.className = "label"; label.textContent = t("appStore"); results.appendChild(label);
-    hits.forEach(function (hit) {
-      const b = document.createElement("button"); b.className = "hit"; b.type = "button";
-      b.innerHTML = '<img src="' + (hit.artworkUrl100 || "") + '" alt=""><div><b>' + shortName(hit.trackName) + "</b><span>" + hit.bundleId + "</span></div>";
-      b.onclick = function () { addApp({ name: shortName(hit.trackName), bundleId: hit.bundleId, icon: hit.artworkUrl100 || hit.artworkUrl60 || "" }); };
-      results.appendChild(b);
-    });
+    online = mapStore(data);
+    onlineTitle = t("appStore");
+    paintResults(q.value.trim());
   };
   const s = document.createElement("script"); s.id = "qljsonp";
-  s.src = "https://itunes.apple.com/search?term=" + encodeURIComponent(term) + "&entity=software&country=" + storeCountry() + "&limit=8&callback=" + cb;
+  s.src = "https://itunes.apple.com/search?term=" + encodeURIComponent(term) + "&entity=software&country=" + storeCountry() + "&limit=10&callback=" + cb;
+  document.body.appendChild(s);
+}
+function suggestOnline() {
+  const cb = "ql_" + Date.now();
+  const old = document.getElementById("qljsonp"); if (old) old.remove();
+  window[cb] = function (data) {
+    delete window[cb];
+    const node = document.getElementById("qljsonp"); if (node) node.remove();
+    online = mapStore(data);
+    onlineTitle = t("suggest");
+    paintResults(q.value.trim());
+  };
+  const s = document.createElement("script"); s.id = "qljsonp";
+  s.src = "https://itunes.apple.com/search?term=app&entity=software&country=" + storeCountry() + "&limit=10&callback=" + cb;
   document.body.appendChild(s);
 }
 function addApp(hit) {
@@ -261,13 +320,16 @@ function addApp(hit) {
   list.push({ name: shortName(hit.name), bundleId: hit.bundleId, icon: hit.icon });
   save(list); render(); closeSheet();
 }
-fetch(JSON_URL).then(function (r) { return r.json(); }).then(function (data) {
+function takeCatalog(data) {
   catalog = Object.keys(data || {}).map(function (id) {
     const row = data[id] || {};
     return { bundleId: id, name: shortName(row.Name || row.name || id), icon: iconUrl(row.icon) };
   }).sort(function (a, b) { return a.name.localeCompare(b.name, lang); });
   if (sheet.classList.contains("on")) paintResults(q.value.trim());
-}).catch(function () { catalog = []; });
+}
+fetch(JSON_URL).then(function (r) { if (!r.ok) throw new Error("missing"); return r.json(); }).then(takeCatalog).catch(function () {
+  fetch("System/SystemApp.json").then(function (r) { return r.json(); }).then(takeCatalog).catch(function () { catalog = []; });
+});
 
 paintBg();
 showHint();
