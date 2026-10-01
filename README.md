@@ -1,43 +1,45 @@
 # Launcher IOS
 
-Webclip mở nhanh ứng dụng trên iPhone. Gắn lên màn hình chính, chọn app, bấm là mở — không cần lục thư viện.
+Mở app trên iPhone từ một dock riêng. Gắn lên màn hình chính, bấm icon là chạy — không lục thư viện.
 
-Trang: [Launcher-IOS](https://dammeiosvn.github.io/Launcher-IOS/)
+[Mở trang](https://dammeiosvn.github.io/Launcher-IOS/) · [Tải hồ sơ cài](https://dammeiosvn.github.io/Launcher-IOS/LauncherIOS.mobileconfig)
 
-## Cài cấu hình
+<p>
+  <img src="docs/webclip.jpg" width="240" alt="Icon Launcher trên màn hình chính">
+  <img src="docs/home.jpg" width="240" alt="Dock 8 app, ảnh nền và đồng hồ">
+  <img src="docs/picker.jpg" width="240" alt="Tìm app hệ thống để thêm vào dock">
+</p>
 
-Bấm trên iPhone, Safari sẽ hỏi cài hồ sơ.
+Ảnh trên là minh họa bố cục, không phải ảnh chụp máy.
 
-**[Tải LauncherIOS](https://dammeiosvn.github.io/Launcher-IOS/LauncherIOS.mobileconfig)**
+## Cài
 
-Nếu liên kết trên không mở trình cài, dùng bản raw:
+1. Trên iPhone, bấm [Tải LauncherIOS.mobileconfig](https://dammeiosvn.github.io/Launcher-IOS/LauncherIOS.mobileconfig).
+2. Cho phép Safari tải hồ sơ.
+3. Vào **Cài đặt → Đã tải về hồ sơ**, chọn **Launcher IOS**, bấm **Cài đặt**.
+4. Mở [trang](https://dammeiosvn.github.io/Launcher-IOS/), **Chia sẻ → Thêm vào Màn hình chính**.
 
-**[Tải từ GitHub](https://github.com/dammeiosvn/Launcher-IOS/raw/main/LauncherIOS.mobileconfig)**
+Link dự phòng nếu Safari không nhận hồ sơ: [bản raw trên GitHub](https://github.com/dammeiosvn/Launcher-IOS/raw/main/LauncherIOS.mobileconfig).
 
-Sau khi tải:
-
-1. Cho phép Safari tải hồ sơ.
-2. Vào **Cài đặt → Đã tải về hồ sơ** (hoặc **Cài đặt → Cài đặt chung → VPN & Quản lý thiết bị**).
-3. Chọn **Launcher IOS** rồi bấm **Cài đặt**.
-4. Mở trang, bấm **Chia sẻ → Thêm vào Màn hình chính**.
-
-Hồ sơ chỉ giúp cài webclip và icon. Không xin quyền ngoài việc mở trang.
+Hồ sơ chỉ mở webclip và icon. Không xin quyền khác.
 
 ## Cần có
 
-Shortcut tên đúng **Quick Launcher**. App trên dock gửi bundle ID sang shortcut này:
+Shortcut phải tên đúng **Quick Launcher**. Dock gửi bundle ID sang shortcut:
 
-`shortcuts://run-shortcut?name=Quick%20Launcher&input=text&text=BUNDLE_ID`
+```text
+shortcuts://run-shortcut?name=Quick%20Launcher&input=text&text=BUNDLE_ID
+```
 
-Chưa có shortcut thì app trên dock sẽ không mở.
+Chưa có shortcut thì icon trên dock không mở được app.
 
 ## Dùng
 
-- **+** thêm app. Tìm trong danh sách hệ thống hoặc App Store. Tối đa 8 app.
-- Giữ app để xóa.
-- Bánh răng: **Lưới** / **Danh sách**, **Đổi tên**, **Thông tin**.
-- Ảnh đầu trang: chạm **Chọn ảnh**, kéo khung, **Xác nhận**.
-- Giao diện theo sáng tối của máy.
+- **+** thêm app. Tìm trong danh sách hệ thống hoặc App Store. Tối đa 8.
+- Giữ icon để xóa.
+- Bánh răng: lưới, danh sách, đổi tên, thông tin.
+- Ảnh đầu trang: chọn ảnh, kéo khung, xác nhận.
+- Sáng tối theo máy.
 
 ## Trong repo
 
@@ -49,6 +51,4 @@ Chưa có shortcut thì app trên dock sẽ không mở.
 | `System/SystemApp.json` | Tên và bundle ID |
 | `systemapp/` | Icon từng app |
 
-## Phiên bản
-
-1.0 — bản dùng được trên iPhone.
+Phiên bản 1.0.
