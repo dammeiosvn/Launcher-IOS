@@ -15,9 +15,11 @@
   "aboutBody": "Webclip launcher opens apps through the Quick Launcher shortcut. Add up to 8 apps from the system list or the App Store and send the bundle ID to the shortcut. Change the cover photo and drag to frame it, switch between grid and list, rename labels, and follow the device light or dark appearance.",
   "displayName": "Display name",
   "deleteAsk": "Delete {name}?",
-  "catalogMissing": "Could not read System/SystemApp.json",
+  "catalogMissing": "Could not read SystemApp.json",
   "systemApps": "System apps",
   "appStore": "App Store",
+  "seeMore": "See more",
+  "suggest": "Suggestions",
   "quotes": [
     "Slow down enough to hear what you already know.",
     "A new day need not be perfect. It only needs to begin.",

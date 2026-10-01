@@ -15,9 +15,11 @@
   "aboutBody": "Webclip launcher mở ứng dụng qua phím tắt Quick Launcher. Thêm tối đa 8 app từ danh sách hệ thống hoặc App Store, gửi bundle ID sang phím tắt. Đổi ảnh nền và kéo chỉnh trong khung, chuyển lưới hoặc danh sách, đổi tên hiển thị, giao diện tự theo sáng tối của máy.",
   "displayName": "Tên hiển thị",
   "deleteAsk": "Xóa {name}?",
-  "catalogMissing": "Chưa đọc được System/SystemApp.json",
+  "catalogMissing": "Chưa đọc được SystemApp.json",
   "systemApps": "Ứng dụng hệ thống",
   "appStore": "App Store",
+  "seeMore": "Xem thêm",
+  "suggest": "Gợi ý",
   "quotes": [
     "Sống chậm lại, để kịp nghe lòng mình nói.",
     "Ngày mới không cần hoàn hảo, chỉ cần bắt đầu.",
