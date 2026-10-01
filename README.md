@@ -2,13 +2,13 @@
 
 Webclip mở nhanh ứng dụng trên iPhone. Gắn lên màn hình chính, chọn app, bấm là mở — không cần lục thư viện.
 
-Trang: [dammeiosvn.github.io/Launcher-IOS](https://dammeiosvn.github.io/Launcher-IOS/)
+Trang: [Launcher-IOS](https://dammeiosvn.github.io/Launcher-IOS/)
 
 ## Cài cấu hình
 
 Bấm trên iPhone, Safari sẽ hỏi cài hồ sơ.
 
-**[Tải LauncherIOS.mobileconfig](https://dammeiosvn.github.io/Launcher-IOS/LauncherIOS.mobileconfig)**
+**[Tải LauncherIOS](https://dammeiosvn.github.io/Launcher-IOS/LauncherIOS.mobileconfig)**
 
 Nếu liên kết trên không mở trình cài, dùng bản raw:
 
