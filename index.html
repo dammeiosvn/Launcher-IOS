@@ -1,385 +1,63 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Launcher">
-<link rel="apple-touch-icon" href="icon-home-screen.png">
-<title>Launcher iOS</title>
-<style>
-  :root {
-    --teal: #1c8f86;
-    --ink: #2c3338;
-    --muted: #8b949c;
-    --bg: #fff;
-    --dock: #1c8f86;
-    --glass: rgba(255,255,255,.62);
-    --line: rgba(255,255,255,.45);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --ink: #f3f5f6;
-      --muted: #aeb6bd;
-      --bg: #121416;
-      --dock: #146e68;
-      --glass: rgba(28,32,36,.62);
-      --line: rgba(255,255,255,.16);
-    }
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-  html, body { height: 100%; background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; }
-  body { color: var(--ink); }
-  .screen {
-    height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    background: var(--bg);
-    padding-top: env(safe-area-inset-top);
-    overflow: hidden;
-  }
-  .top { padding: 18px 22px 6px; flex: none; position: relative; }
-  h1 { font-size: clamp(20px, 5.4vw, 26px); font-weight: 700; letter-spacing: .4px; line-height: 1.12; text-transform: uppercase; padding-right: 36px; }
-  .rule { width: 72px; height: 3px; background: var(--teal); border-radius: 2px; margin: 8px 0 6px; }
-  .date { font-size: 11px; letter-spacing: 1.6px; color: var(--muted); font-weight: 600; }
-  .clock { display: inline-block; margin-top: 12px; background: var(--teal); color: #fff; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 10px; }
-  .art {
-    position: relative;
-    flex: 1 1 28dvh;
-    min-height: 120px;
-    max-height: 34dvh;
-    margin-top: 8px;
-    background: #d7ece9 center/cover no-repeat;
-    overflow: hidden;
-    touch-action: none;
-  }
-  .art .hint, .ok {
-    position: absolute;
-    font-size: 12px;
-    color: #fff;
-    background: rgba(0,0,0,.4);
-    padding: 5px 10px;
-    border-radius: 8px;
-    border: 0;
-  }
-  .art .hint { right: 12px; bottom: 12px; opacity: 0; transition: opacity .25s; pointer-events: none; }
-  .art .hint.on { opacity: 1; pointer-events: auto; }
-  .ok { top: 12px; right: 12px; display: none; background: #3dcc6e; font-weight: 700; }
-  .art.edit .ok { display: block; }
-  .dock {
-    flex: 1 1 auto;
-    min-height: 0;
-    background: var(--dock);
-    padding: 18px 14px calc(78px + env(safe-area-inset-bottom));
-    overflow: auto;
-  }
-  .dock.grid { display: grid; grid-template-columns: repeat(4, 1fr); align-content: start; justify-items: center; gap: 16px 6px; }
-  .dock.list { display: flex; flex-direction: column; gap: 14px; padding-left: 22px; padding-right: 22px; }
-  .app { background: none; border: 0; color: #fff; padding: 0; }
-  .dock.grid .app { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 100%; font-size: 12px; font-weight: 500; }
-  .dock.list .app { display: flex; align-items: center; gap: 14px; width: 100%; font-size: 17px; font-weight: 500; text-align: left; }
-  .app img, .bubble { object-fit: cover; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,.12); }
-  .dock.grid .app img, .dock.grid .bubble { width: 52px; height: 52px; border-radius: 14px; }
-  .dock.list .app img, .dock.list .bubble { width: 36px; height: 36px; border-radius: 50%; }
-  .bubble { display: grid; place-items: center; color: var(--teal); }
-  .app span { max-width: 76px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .dock.list .app span { max-width: none; }
-  .renaming .app span { border: 1px dashed rgba(255,255,255,.8); border-radius: 8px; padding: 3px 6px; max-width: 92px; }
-  .fab {
-    position: fixed; z-index: 20; width: 52px; height: 52px; border-radius: 50%; border: 0;
-    background: #3dcc6e; display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 6px 16px rgba(0,0,0,.18); bottom: calc(16px + env(safe-area-inset-bottom));
-  }
-  .fab svg { width: 26px; height: 26px; display: block; }
-  .fab.hide { display: none; }
-  #add { left: 18px; }
-  #gear {
-    position: absolute; top: 16px; right: 14px; bottom: auto;
-    width: 34px; height: 34px; background: transparent; box-shadow: none;
-  }
-  #gear svg { width: 22px; height: 22px; stroke: var(--teal); }
-  .mask { position: fixed; inset: 0; background: rgba(0,0,0,.35); display: none; z-index: 30; }
-  .mask.on { display: block; }
-  .sheet, .pop {
-    position: fixed; z-index: 31; background: var(--glass);
-    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-    border: 1px solid var(--line);
-  }
-  .sheet {
-    left: 0; right: 0; bottom: 0; border-radius: 18px 18px 0 0;
-    padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
-    transform: translateY(110%); transition: transform .25s ease; max-height: 78%;
-    display: flex; flex-direction: column; gap: 10px; color: var(--ink);
-  }
-  .sheet.on, .pop.on { transform: none; }
-  .pop {
-    right: 16px; top: calc(58px + env(safe-area-inset-top)); bottom: auto;
-    width: min(240px, calc(100vw - 32px));
-    border-radius: 18px; padding: 12px;
-    display: none; flex-direction: column; gap: 8px;
-  }
-  .pop.on { display: flex; }
-  .sheet input, .namebox {
-    width: 100%; border: 1px solid #e3e6ea; border-radius: 12px; padding: 12px 14px; font-size: 16px; background: #fff; color: #111;
-  }
-  .results { overflow: auto; display: flex; flex-direction: column; gap: 8px; }
-  .hit { display: flex; gap: 10px; align-items: center; border: 0; background: rgba(255,255,255,.72); border-radius: 12px; padding: 8px; text-align: left; color: #111; }
-  .hit img { width: 40px; height: 40px; border-radius: 10px; background: #fff; }
-  .hit b { display: block; font-size: 14px; }
-  .hit span { font-size: 11px; color: #6b7280; word-break: break-all; }
-  .empty, .label { color: var(--muted); font-size: 12px; padding: 4px 2px; }
-  .pill {
-    border: 0; border-radius: 999px; padding: 10px 14px; font-size: 15px; font-weight: 600;
-    background: rgba(255,255,255,.55); color: var(--ink);
-    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  }
-  .pill.on { background: #3dcc6e; color: #fff; }
-  .info {
-    position: fixed; left: 18px; right: 18px; top: 50%; transform: translateY(-40%);
-    z-index: 32; display: none; border-radius: 18px; padding: 18px;
-    background: var(--glass); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-    border: 1px solid var(--line); color: var(--ink);
-  }
-  .info.on { display: block; }
-  .info h2 { font-size: 20px; }
-  .info p { margin-top: 8px; font-size: 14px; line-height: 1.45; }
-  .info a { color: #1a8cff; text-decoration: none; font-weight: 700; }
-  .done {
-    position: fixed; left: 18px; right: 18px; bottom: calc(16px + env(safe-area-inset-bottom));
-    z-index: 25; display: none; border: 0; border-radius: 14px; background: #3dcc6e; color: #fff;
-    font-size: 16px; font-weight: 700; padding: 14px;
-  }
-  .done.on { display: block; }
-</style>
+<meta name="theme-color" content="#1c8f86">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="stylesheet" href="css/style.css">
+<title>Launcher IOS</title>
 </head>
 <body>
   <div class="screen">
     <div class="top">
-      <button class="fab" id="gear" type="button" aria-label="Cài đặt">
+      <button class="fab" id="gear" type="button" aria-label="Settings">
         <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round">
           <circle cx="12" cy="12" r="3"/>
           <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9c.3.6.9 1 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>
         </svg>
       </button>
-      <h1>Make it simple<br>on Sunday</h1>
+      <h1 id="quote"></h1>
       <div class="rule"></div>
-      <div class="date" id="date">DEC. 05</div>
-      <div class="clock" id="clock">19:27</div>
+      <div class="date" id="date"></div>
+      <div class="clock" id="clock"></div>
     </div>
     <div class="art" id="art">
-      <button class="ok" id="ok" type="button">Xác nhận</button>
-      <span class="hint on" id="hint">Chọn ảnh</span>
+      <button class="ok" id="ok" type="button"></button>
+      <span class="hint on" id="hint"></span>
     </div>
     <div class="dock grid" id="dock"></div>
   </div>
 
-  <button class="fab" id="add" type="button" aria-label="Thêm ứng dụng">
+  <button class="fab" id="add" type="button" aria-label="Add app">
     <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
   </button>
-  <button class="done" id="done" type="button">Xác nhận</button>
+  <button class="done" id="done" type="button"></button>
 
   <div class="mask" id="mask"></div>
   <div class="sheet" id="sheet">
-    <input id="q" placeholder="Tìm ứng dụng" autocomplete="off">
+    <input id="q" placeholder="" autocomplete="off">
     <div class="results" id="results"></div>
   </div>
   <div class="pop" id="menu">
-    <button class="pill" id="modeGrid" type="button">Lưới</button>
-    <button class="pill" id="modeList" type="button">Danh sách</button>
-    <button class="pill" id="rename" type="button">Đổi tên</button>
-    <button class="pill" id="about" type="button">Thông tin</button>
+    <button class="pill" id="modeGrid" type="button"></button>
+    <button class="pill" id="modeList" type="button"></button>
+    <button class="pill" id="rename" type="button"></button>
+    <button class="pill" id="about" type="button"></button>
   </div>
   <div class="info" id="info">
-    <h2>Launcher iOS</h2>
-    <p>Phiên bản 1.0</p>
-    <p>Tác giả: <a href="https://browse.shortcuty.app/user/Sentechtipsvn">Sentechtipsvn</a></p>
-    <p>Webclip launcher mở ứng dụng qua phím tắt Quick Launcher. Thêm tối đa 8 app từ danh sách hệ thống hoặc App Store, gửi bundle ID sang phím tắt. Đổi ảnh nền và kéo chỉnh trong khung, chuyển lưới hoặc danh sách, đổi tên hiển thị, giao diện tự theo sáng tối của máy.</p>
+    <h2 id="infoTitle"></h2>
+    <p id="infoVersion"></p>
+    <p><span id="infoAuthor"></span>: <a href="https://browse.shortcuty.app/user/Sentechtipsvn">Sentechtipsvn</a></p>
+    <p id="infoBody"></p>
   </div>
   <input id="file" type="file" accept="image/*" hidden>
-
-<script>
-const SHORTCUT = "Quick Launcher";
-const ILLU = "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=60";
-const KEY = "ql_apps";
-const BG = "ql_bg";
-const MODE = "ql_mode";
-const MAX = 8;
-const JSON_URL = "System/SystemApp.json";
-
-const dock = document.getElementById("dock");
-const art = document.getElementById("art");
-const hint = document.getElementById("hint");
-const file = document.getElementById("file");
-const mask = document.getElementById("mask");
-const sheet = document.getElementById("sheet");
-const q = document.getElementById("q");
-const results = document.getElementById("results");
-const addBtn = document.getElementById("add");
-const menu = document.getElementById("menu");
-const info = document.getElementById("info");
-const done = document.getElementById("done");
-let catalog = [];
-let hintT, renaming = false, drag = null;
-
-function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
-function save(list) { localStorage.setItem(KEY, JSON.stringify(list)); }
-function shortName(name) { return String(name || "").split(/\s*[-–—:|•]\s*/)[0].trim() || name; }
-function iconUrl(path) { return String(path || "").replace(/\\/g, "/").split("/").map(encodeURIComponent).join("/"); }
-function mode() { return localStorage.getItem(MODE) || "grid"; }
-
-function tick() {
-  const d = new Date();
-  const mon = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"][d.getMonth()];
-  document.getElementById("date").textContent = mon + ". " + String(d.getDate()).padStart(2, "0");
-  document.getElementById("clock").textContent = String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0");
-}
-tick(); setInterval(tick, 10000);
-
-function paintBg() { art.style.backgroundImage = "url(" + (localStorage.getItem(BG) || ILLU) + ")"; art.style.backgroundPosition = "center"; }
-paintBg();
-function showHint() { hint.classList.add("on"); clearTimeout(hintT); hintT = setTimeout(function () { hint.classList.remove("on"); }, 3000); }
-showHint();
-art.onclick = function () { if (art.classList.contains("edit")) return; if (!hint.classList.contains("on")) { showHint(); return; } file.click(); };
-hint.onclick = function (e) { e.stopPropagation(); file.click(); };
-
-file.onchange = function () {
-  const f = file.files[0]; if (!f) return;
-  const r = new FileReader();
-  r.onload = function () { art.style.backgroundImage = "url(" + r.result + ")"; art.dataset.raw = r.result; art.classList.add("edit"); hint.classList.remove("on"); };
-  r.readAsDataURL(f);
-};
-art.ontouchstart = art.onmousedown = function (e) {
-  if (!art.classList.contains("edit")) return;
-  const p = e.touches ? e.touches[0] : e;
-  drag = { x: p.clientX, y: p.clientY, px: parseFloat(art.dataset.px || 50), py: parseFloat(art.dataset.py || 50) };
-};
-art.ontouchmove = art.onmousemove = function (e) {
-  if (!drag) return;
-  e.preventDefault();
-  const p = e.touches ? e.touches[0] : e;
-  const px = Math.max(0, Math.min(100, drag.px - (p.clientX - drag.x) / 3));
-  const py = Math.max(0, Math.min(100, drag.py - (p.clientY - drag.y) / 3));
-  art.dataset.px = px; art.dataset.py = py;
-  art.style.backgroundPosition = px + "% " + py + "%";
-};
-art.ontouchend = art.onmouseup = function () { drag = null; };
-document.getElementById("ok").onclick = function (e) {
-  e.stopPropagation();
-  const img = new Image();
-  img.onload = function () {
-    const w = art.clientWidth, h = art.clientHeight, c = document.createElement("canvas");
-    c.width = w * 2; c.height = h * 2;
-    const ctx = c.getContext("2d");
-    const ir = img.width / img.height, br = w / h;
-    let dw = img.width, dh = img.height, sx = 0, sy = 0;
-    if (ir > br) { dw = img.height * br; sx = (img.width - dw) * ((parseFloat(art.dataset.px || 50)) / 100); }
-    else { dh = img.width / br; sy = (img.height - dh) * ((parseFloat(art.dataset.py || 50)) / 100); }
-    ctx.drawImage(img, sx, sy, dw, dh, 0, 0, c.width, c.height);
-    localStorage.setItem(BG, c.toDataURL("image/jpeg", .85));
-    art.classList.remove("edit");
-    paintBg();
-  };
-  img.src = art.dataset.raw || localStorage.getItem(BG) || ILLU;
-};
-
-function run(id) { location.href = "shortcuts://run-shortcut?name=" + encodeURIComponent(SHORTCUT) + "&input=text&text=" + encodeURIComponent(id); }
-function render() {
-  const list = load();
-  dock.className = "dock " + mode() + (renaming ? " renaming" : "");
-  dock.innerHTML = "";
-  list.forEach(function (app, i) {
-    const b = document.createElement("button");
-    b.className = "app"; b.type = "button";
-    b.innerHTML = (app.icon ? '<img src="' + app.icon + '" alt="">' : '<span class="bubble">●</span>') + "<span>" + (app.name || "") + "</span>";
-    b.onclick = function () {
-      if (!renaming) { run(app.bundleId); return; }
-      const name = prompt("Tên hiển thị", app.name);
-      if (name == null) return;
-      const all = load(); all[i].name = name.trim() || all[i].name; save(all); render();
-    };
-    var t;
-    b.ontouchstart = function () { if (renaming) return; t = setTimeout(function () { remove(i); }, 600); };
-    b.ontouchend = function () { clearTimeout(t); };
-    b.oncontextmenu = function (e) { e.preventDefault(); if (!renaming) remove(i); };
-    dock.appendChild(b);
-  });
-  addBtn.classList.toggle("hide", list.length >= MAX || renaming);
-  document.getElementById("modeGrid").classList.toggle("on", mode() === "grid");
-  document.getElementById("modeList").classList.toggle("on", mode() === "list");
-}
-function remove(i) {
-  const list = load();
-  if (!confirm("Xóa " + list[i].name + "?")) return;
-  list.splice(i, 1); save(list); render();
-}
-render();
-
-function openSheet() {
-  if (load().length >= MAX) return;
-  closePops(); mask.classList.add("on"); sheet.classList.add("on"); q.value = ""; paintResults("");
-  setTimeout(function () { q.focus(); }, 200);
-}
-function closeSheet() { mask.classList.remove("on"); sheet.classList.remove("on"); menu.classList.remove("on"); info.classList.remove("on"); }
-function closePops() { menu.classList.remove("on"); info.classList.remove("on"); }
-addBtn.onclick = openSheet;
-mask.onclick = closeSheet;
-document.getElementById("gear").onclick = function () { info.classList.remove("on"); menu.classList.toggle("on"); mask.classList.toggle("on", menu.classList.contains("on")); };
-document.getElementById("modeGrid").onclick = function () { localStorage.setItem(MODE, "grid"); render(); };
-document.getElementById("modeList").onclick = function () { localStorage.setItem(MODE, "list"); render(); };
-document.getElementById("rename").onclick = function () { renaming = true; closeSheet(); done.classList.add("on"); render(); };
-done.onclick = function () { renaming = false; done.classList.remove("on"); render(); };
-document.getElementById("about").onclick = function () { menu.classList.remove("on"); info.classList.add("on"); mask.classList.add("on"); };
-
-var timer;
-q.oninput = function () { clearTimeout(timer); timer = setTimeout(function () { paintResults(q.value.trim()); searchStore(q.value.trim()); }, 250); };
-function paintResults(term) {
-  results.innerHTML = "";
-  const qn = term.toLowerCase();
-  const hits = catalog.filter(function (a) { return !qn || a.name.toLowerCase().indexOf(qn) >= 0 || a.bundleId.toLowerCase().indexOf(qn) >= 0; }).slice(0, 30);
-  if (!catalog.length) { results.innerHTML = '<div class="empty">Chưa đọc được System/SystemApp.json</div>'; return; }
-  const label = document.createElement("div"); label.className = "label"; label.textContent = "Ứng dụng hệ thống"; results.appendChild(label);
-  hits.forEach(function (hit) {
-    const b = document.createElement("button"); b.className = "hit"; b.type = "button";
-    b.innerHTML = '<img src="' + hit.icon + '" alt=""><div><b>' + hit.name + "</b><span>" + hit.bundleId + "</span></div>";
-    b.onclick = function () { addApp(hit); };
-    results.appendChild(b);
-  });
-}
-function searchStore(term) {
-  if (term.length < 2) return;
-  const cb = "ql_" + Date.now();
-  const old = document.getElementById("qljsonp"); if (old) old.remove();
-  window[cb] = function (data) {
-    delete window[cb];
-    const node = document.getElementById("qljsonp"); if (node) node.remove();
-    const hits = (data.results || []).filter(function (x) { return x.bundleId; }).slice(0, 8);
-    if (!hits.length) return;
-    const label = document.createElement("div"); label.className = "label"; label.textContent = "App Store"; results.appendChild(label);
-    hits.forEach(function (hit) {
-      const b = document.createElement("button"); b.className = "hit"; b.type = "button";
-      b.innerHTML = '<img src="' + (hit.artworkUrl100 || "") + '" alt=""><div><b>' + shortName(hit.trackName) + "</b><span>" + hit.bundleId + "</span></div>";
-      b.onclick = function () { addApp({ name: shortName(hit.trackName), bundleId: hit.bundleId, icon: hit.artworkUrl100 || hit.artworkUrl60 || "" }); };
-      results.appendChild(b);
-    });
-  };
-  const s = document.createElement("script"); s.id = "qljsonp";
-  s.src = "https://itunes.apple.com/search?term=" + encodeURIComponent(term) + "&entity=software&country=vn&limit=8&callback=" + cb;
-  document.body.appendChild(s);
-}
-function addApp(hit) {
-  if (load().length >= MAX) return;
-  const list = load().filter(function (a) { return a.bundleId !== hit.bundleId; });
-  list.push({ name: shortName(hit.name), bundleId: hit.bundleId, icon: hit.icon });
-  save(list); render(); closeSheet();
-}
-fetch(JSON_URL).then(function (r) { return r.json(); }).then(function (data) {
-  catalog = Object.keys(data || {}).map(function (id) {
-    const row = data[id] || {};
-    return { bundleId: id, name: shortName(row.Name || row.name || id), icon: iconUrl(row.icon) };
-  }).sort(function (a, b) { return a.name.localeCompare(b.name); });
-}).catch(function () { catalog = []; });
-</script>
+  <script src="js/app.js"></script>
 </body>
 </html>
