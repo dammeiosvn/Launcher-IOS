@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Ustawienia",
+  "confirm": "Potwierdź",
+  "choosePhoto": "Wybierz zdjęcie",
+  "addApp": "Dodaj aplikację",
+  "searchPlaceholder": "Szukaj aplikacji",
+  "grid": "Siatka",
+  "list": "Lista",
+  "rename": "Zmień nazwę",
+  "about": "O programie",
+  "version": "Wersja 1.0",
+  "author": "Autor",
+  "aboutBody": "Program uruchamiający Webclip do otwierania aplikacji za pomocą skrótu Quick Launcher. Dodaj do 8 aplikacji z listy systemowej lub App Store, wyślij bundle ID do skrótu. Zmień obraz tła i przeciągnij, aby dostosować go w ramce, przełączaj między siatką a listą, zmień nazwę wyświetlaną, interfejs automatycznie dostosowuje się do trybu jasnego/ciemnego urządzenia.",
+  "displayName": "Nazwa wyświetlana",
+  "deleteAsk": "Usunąć {name}?",
+  "catalogMissing": "Nie można odczytać SystemApp.json",
+  "systemApps": "Aplikacje systemowe",
+  "appStore": "App Store",
+  "seeMore": "Zobacz więcej",
+  "suggest": "Sugerowane"
+}
