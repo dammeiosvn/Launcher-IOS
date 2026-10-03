@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Ayarlar",
+  "confirm": "Onayla",
+  "choosePhoto": "Fotoğraf Seç",
+  "addApp": "Uygulama Ekle",
+  "searchPlaceholder": "Uygulama ara",
+  "grid": "Izgara",
+  "list": "Liste",
+  "rename": "Yeniden Adlandır",
+  "about": "Hakkında",
+  "version": "Sürüm 1.0",
+  "author": "Yazar",
+  "aboutBody": "Quick Launcher kestirmesi aracılığıyla uygulamaları açan Webclip başlatıcısı. Sistem listesinden veya App Store'dan en fazla 8 uygulama ekleyin, kestirmeye bundle ID gönderin. Arka plan resmini değiştirin ve çerçeve içinde ayarlamak için sürükleyin, ızgara veya liste görünümüne geçin, görüntülenen adı değiştirin; arayüz cihazın açık/koyu moduna otomatik olarak uyum sağlar.",
+  "displayName": "Görüntülenen Ad",
+  "deleteAsk": "{name} silinsin mi?",
+  "catalogMissing": "SystemApp.json okunamadı",
+  "systemApps": "Sistem Uygulamaları",
+  "appStore": "App Store",
+  "seeMore": "Daha Fazla Göster",
+  "suggest": "Önerilenler"
+}
