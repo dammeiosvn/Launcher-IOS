@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Einstellungen",
+  "confirm": "Bestätigen",
+  "choosePhoto": "Foto auswählen",
+  "addApp": "App hinzufügen",
+  "searchPlaceholder": "Apps suchen",
+  "grid": "Raster",
+  "list": "Liste",
+  "rename": "Umbenennen",
+  "about": "Info",
+  "version": "Version 1.0",
+  "author": "Autor",
+  "aboutBody": "Webclip-Launcher zum Öffnen von Apps über den Quick Launcher-Kurzbefehl. Fügen Sie bis zu 8 Apps aus der Systemliste oder dem App Store hinzu und senden Sie die Bundle-ID an den Kurzbefehl. Ändern Sie das Hintergrundbild und ziehen Sie es zum Anpassen im Rahmen, wechseln Sie zwischen Raster und Liste, benennen Sie den Anzeigenamen um. Die Benutzeroberfläche passt sich automatisch dem Hell-/Dunkelmodus des Geräts an.",
+  "displayName": "Anzeigename",
+  "deleteAsk": "{name} löschen?",
+  "catalogMissing": "SystemApp.json konnte nicht gelesen werden",
+  "systemApps": "System-Apps",
+  "appStore": "App Store",
+  "seeMore": "Mehr anzeigen",
+  "suggest": "Vorschlagen"
+}
