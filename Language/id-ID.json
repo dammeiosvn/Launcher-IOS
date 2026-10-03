@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Pengaturan",
+  "confirm": "Konfirmasi",
+  "choosePhoto": "Pilih Foto",
+  "addApp": "Tambah Aplikasi",
+  "searchPlaceholder": "Cari aplikasi",
+  "grid": "Kisi",
+  "list": "Daftar",
+  "rename": "Ubah Nama",
+  "about": "Tentang",
+  "version": "Versi 1.0",
+  "author": "Penulis",
+  "aboutBody": "Peluncur Webclip untuk membuka aplikasi melalui pintasan Quick Launcher. Tambahkan hingga 8 aplikasi dari daftar sistem atau App Store, lalu kirim bundle ID ke pintasan. Ubah gambar latar belakang dan geser untuk menyesuaikan di dalam bingkai, beralih antara tampilan kisi atau daftar, ubah nama tampilan, dan antarmuka akan secara otomatis menyesuaikan dengan mode terang/gelap perangkat.",
+  "displayName": "Nama Tampilan",
+  "deleteAsk": "Hapus {name}?",
+  "catalogMissing": "Tidak dapat membaca SystemApp.json",
+  "systemApps": "Aplikasi Sistem",
+  "appStore": "App Store",
+  "seeMore": "Lihat Lebih Banyak",
+  "suggest": "Saran"
+}
