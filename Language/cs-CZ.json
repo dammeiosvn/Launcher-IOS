@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Nastavení",
+  "confirm": "Potvrdit",
+  "choosePhoto": "Vybrat fotku",
+  "addApp": "Přidat aplikaci",
+  "searchPlaceholder": "Hledat aplikace",
+  "grid": "Mřížka",
+  "list": "Seznam",
+  "rename": "Přejmenovat",
+  "about": "O aplikaci",
+  "version": "Verze 1.0",
+  "author": "Autor",
+  "aboutBody": "Spouštěč Webclip pro otevírání aplikací pomocí zkratky Quick Launcher. Přidejte až 8 aplikací ze systémového seznamu nebo App Storu a odešlete bundle ID do zkratky. Změňte obrázek na pozadí a přetažením jej upravte v rámečku, přepínejte mezi mřížkou a seznamem, změňte zobrazované jméno. Rozhraní se automaticky přizpůsobí světlému/tmavému režimu zařízení.",
+  "displayName": "Zobrazované jméno",
+  "deleteAsk": "Smazat {name}?",
+  "catalogMissing": "Nelze načíst SystemApp.json",
+  "systemApps": "Systémové aplikace",
+  "appStore": "App Store",
+  "seeMore": "Zobrazit více",
+  "suggest": "Doporučené"
+}
