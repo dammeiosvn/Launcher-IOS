@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "ตั้งค่า",
+  "confirm": "ยืนยัน",
+  "choosePhoto": "เลือกรูปภาพ",
+  "addApp": "เพิ่มแอป",
+  "searchPlaceholder": "ค้นหาแอป",
+  "grid": "ตาราง",
+  "list": "รายการ",
+  "rename": "เปลี่ยนชื่อ",
+  "about": "เกี่ยวกับ",
+  "version": "เวอร์ชัน 1.0",
+  "author": "ผู้เขียน",
+  "aboutBody": "ตัวเปิด Webclip สำหรับเปิดแอปผ่านคำสั่งลัด Quick Launcher เพิ่มแอปได้สูงสุด 8 แอปจากรายการระบบหรือ App Store และส่ง bundle ID ไปยังคำสั่งลัด เปลี่ยนรูปพื้นหลังและลากเพื่อปรับขนาดในกรอบ สลับระหว่างมุมมองตารางหรือรายการ เปลี่ยนชื่อที่แสดง และส่วนติดต่อผู้ใช้จะปรับตามโหมดสว่าง/มืดของอุปกรณ์โดยอัตโนมัติ",
+  "displayName": "ชื่อที่แสดง",
+  "deleteAsk": "ลบ {name} หรือไม่?",
+  "catalogMissing": "ไม่สามารถอ่าน SystemApp.json ได้",
+  "systemApps": "แอประบบ",
+  "appStore": "App Store",
+  "seeMore": "ดูเพิ่มเติม",
+  "suggest": "แนะนำ"
+}
