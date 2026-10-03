@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Indstillinger",
+  "confirm": "Bekræft",
+  "choosePhoto": "Vælg foto",
+  "addApp": "Tilføj app",
+  "searchPlaceholder": "Søg efter apps",
+  "grid": "Gitter",
+  "list": "Liste",
+  "rename": "Omdøb",
+  "about": "Om",
+  "version": "Version 1.0",
+  "author": "Forfatter",
+  "aboutBody": "Webclip-launcher til at åbne apps via Quick Launcher-genvejen. Tilføj op til 8 apps fra systemlisten eller App Store, send bundle-ID til genvejen. Skift baggrundsbillede og træk for at justere i rammen, skift mellem gitter eller liste, omdøb visningsnavn, grænsefladen tilpasser sig automatisk enhedens lyse/mørke tilstand.",
+  "displayName": "Visningsnavn",
+  "deleteAsk": "Slet {name}?",
+  "catalogMissing": "Kunne ikke læse SystemApp.json",
+  "systemApps": "System-apps",
+  "appStore": "App Store",
+  "seeMore": "Se mere",
+  "suggest": "Forslag"
+}
