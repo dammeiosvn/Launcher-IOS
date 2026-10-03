@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "設定",
+  "confirm": "確認",
+  "choosePhoto": "写真を選択",
+  "addApp": "アプリを追加",
+  "searchPlaceholder": "アプリを検索",
+  "grid": "グリッド",
+  "list": "リスト",
+  "rename": "名前を変更",
+  "about": "情報",
+  "version": "バージョン 1.0",
+  "author": "作成者",
+  "aboutBody": "Quick Launcherショートカット経由でアプリを開くWebclipランチャー。システムリストまたはApp Storeから最大8つのアプリを追加し、バンドルIDをショートカットに送信します。背景画像の変更やフレーム内のドラッグ調整、グリッドとリストの切り替え、表示名の変更が可能で、インターフェースはデバイスのライト/ダークモードに自動で適応します。",
+  "displayName": "表示名",
+  "deleteAsk": "{name}を削除しますか？",
+  "catalogMissing": "SystemApp.json を読み込めませんでした",
+  "systemApps": "システムアプリ",
+  "appStore": "App Store",
+  "seeMore": "さらに表示",
+  "suggest": "提案"
+}
