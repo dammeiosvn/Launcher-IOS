@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "सेटिंग्स",
+  "confirm": "पुष्टि करें",
+  "choosePhoto": "फ़ोटो चुनें",
+  "addApp": "ऐप जोड़ें",
+  "searchPlaceholder": "ऐप खोजें",
+  "grid": "ग्रिड",
+  "list": "सूची",
+  "rename": "नाम बदलें",
+  "about": "के बारे में",
+  "version": "संस्करण 1.0",
+  "author": "लेखक",
+  "aboutBody": "Quick Launcher शॉर्टकट के माध्यम से ऐप्स खोलने के लिए Webclip लॉन्चर। सिस्टम सूची या App Store से अधिकतम 8 ऐप्स जोड़ें, और शॉर्टकट में bundle ID भेजें। पृष्ठभूमि छवि बदलें और फ़्रेम में समायोजित करने के लिए खींचें, ग्रिड या सूची के बीच स्विच करें, प्रदर्शित नाम बदलें, इंटरफ़ेस स्वचालित रूप से डिवाइस के लाइट/डार्क मोड के अनुसार अनुकूलित होता है।",
+  "displayName": "प्रदर्शित नाम",
+  "deleteAsk": "{name} को हटाएं?",
+  "catalogMissing": "SystemApp.json पढ़ा नहीं जा सका",
+  "systemApps": "सिस्टम ऐप्स",
+  "appStore": "App Store",
+  "seeMore": "और देखें",
+  "suggest": "सुझाव"
+}
