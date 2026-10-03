@@ -8,7 +8,7 @@ Mở app trên iPhone từ một dock riêng. Gắn lên màn hình chính, bấ
   <img src="docs/Demo_3.png" width="240" alt="Tìm app hệ thống để thêm vào dock">
 </p>
 
-Ảnh trên là minh họa bố cục, không phải ảnh chụp máy.
+Ảnh trên là minh họa bố cục,sau khi được cài trên iPhone.
 
 ## [Cài đặt](https://dammeiosvn.github.io/Launcher-IOS/LauncherIOS.mobileconfig)
 2. Cho phép Safari tải hồ sơ.
