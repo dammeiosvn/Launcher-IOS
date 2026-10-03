@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Impostazioni",
+  "confirm": "Conferma",
+  "choosePhoto": "Scegli foto",
+  "addApp": "Aggiungi app",
+  "searchPlaceholder": "Cerca app",
+  "grid": "Griglia",
+  "list": "Elenco",
+  "rename": "Rinomina",
+  "about": "Info",
+  "version": "Versione 1.0",
+  "author": "Autore",
+  "aboutBody": "Webclip launcher per aprire app tramite il comando rapido Quick Launcher. Aggiungi fino a 8 app dall'elenco di sistema o dall'App Store e invia il bundle ID al comando rapido. Modifica l'immagine di sfondo e trascina per regolarla nel riquadro, passa da griglia a elenco, rinomina il nome visualizzato, l'interfaccia si adatta automaticamente alla modalità chiara/scura del dispositivo.",
+  "displayName": "Nome visualizzato",
+  "deleteAsk": "Eliminare {name}?",
+  "catalogMissing": "Impossibile leggere SystemApp.json",
+  "systemApps": "App di sistema",
+  "appStore": "App Store",
+  "seeMore": "Vedi altro",
+  "suggest": "Suggeriti"
+}
