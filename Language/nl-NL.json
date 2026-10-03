@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Instellingen",
+  "confirm": "Bevestigen",
+  "choosePhoto": "Kies foto",
+  "addApp": "App toevoegen",
+  "searchPlaceholder": "Zoek apps",
+  "grid": "Raster",
+  "list": "Lijst",
+  "rename": "Naam wijzigen",
+  "about": "Over",
+  "version": "Versie 1.0",
+  "author": "Auteur",
+  "aboutBody": "Webclip launcher om apps te openen via Quick Launcher-opdracht. Voeg maximaal 8 apps toe uit de systeemlijst of App Store, stuur de bundle ID naar de opdracht. Wijzig achtergrondafbeelding en sleep om aan te passen binnen het frame, schakel tussen raster of lijst, wijzig weergavenaam, de interface past zich automatisch aan de licht/donker-modus van het apparaat aan.",
+  "displayName": "Weergavenaam",
+  "deleteAsk": "{name} verwijderen?",
+  "catalogMissing": "Kan SystemApp.json niet lezen",
+  "systemApps": "Systeem-apps",
+  "appStore": "App Store",
+  "seeMore": "Bekijk meer",
+  "suggest": "Suggesties"
+}
