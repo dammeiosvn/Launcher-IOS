@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Settings",
+  "confirm": "Confirm",
+  "choosePhoto": "Choose Photo",
+  "addApp": "Add App",
+  "searchPlaceholder": "Search apps",
+  "grid": "Grid",
+  "list": "List",
+  "rename": "Rename",
+  "about": "About",
+  "version": "Version 1.0",
+  "author": "Author",
+  "aboutBody": "Webclip launcher to open apps via Quick Launcher shortcut. Add up to 8 apps from the system list or App Store, send bundle ID to the shortcut. Change background image and drag to adjust within the frame, switch between grid or list, rename display name, interface automatically follows device light/dark mode.",
+  "displayName": "Display Name",
+  "deleteAsk": "Delete {name}?",
+  "catalogMissing": "Could not read SystemApp.json",
+  "systemApps": "System Apps",
+  "appStore": "App Store",
+  "seeMore": "See More",
+  "suggest": "Suggest"
+}
