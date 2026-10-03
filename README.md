@@ -2,8 +2,6 @@
 
 Mở app trên iPhone từ một dock riêng. Gắn lên màn hình chính, bấm icon là chạy — không lục thư viện.
 
-[Mở trang](https://dammeiosvn.github.io/Launcher-IOS/) · [Tải hồ sơ cài](https://dammeiosvn.github.io/Launcher-IOS/LauncherIOS.mobileconfig)
-
 <p>
   <img src="docs/Demo_1.png" width="240" alt="Icon Launcher trên màn hình chính">
   <img src="docs/Demo_2.png" width="240" alt="Dock 8 app, ảnh nền và đồng hồ">
@@ -35,7 +33,7 @@ Chưa có shortcut thì icon trên dock không mở được app.
 - Bánh răng: lưới, danh sách, đổi tên, thông tin.
 - Ảnh đầu trang: chọn ảnh, kéo khung, xác nhận.
 - Sáng tối theo máy.
-[## Kênh phím tắt](https://browse.shortcuty.app/user/Sentechtipsvn)
+- [**Kênh phím tắt**](https://browse.shortcuty.app/user/Sentechtipsvn)
 
 ## Trong repo
 
