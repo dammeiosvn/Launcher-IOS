@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Tetapan",
+  "confirm": "Sahkan",
+  "choosePhoto": "Pilih foto",
+  "addApp": "Tambah apl",
+  "searchPlaceholder": "Cari apl",
+  "grid": "Grid",
+  "list": "Senarai",
+  "rename": "Namakan semula",
+  "about": "Perihal",
+  "version": "Versi 1.0",
+  "author": "Pengarang",
+  "displayName": "Nama paparan",
+  "deleteAsk": "Padam {name}?",
+  "catalogMissing": "Tidak dapat membaca SystemApp.json",
+  "systemApps": "Apl sistem",
+  "appStore": "App Store",
+  "seeMore": "Lihat lagi",
+  "suggest": "Cadangan",
+  "aboutBody": "Pelancar webclip membuka apl melalui pintasan Quick Launcher. Tambah sehingga 8 apl daripada senarai sistem atau App Store dan hantar bundle ID ke pintasan. Tukar foto muka depan dan seret untuk membingkainya, bertukar antara grid dan senarai, namakan semula label, dan ikut penampilan cerah atau gelap peranti."
+}

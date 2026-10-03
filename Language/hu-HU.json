@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Beállítások",
+  "confirm": "Megerősítés",
+  "choosePhoto": "Fénykép választása",
+  "addApp": "App hozzáadása",
+  "searchPlaceholder": "Appok keresése",
+  "grid": "Rács",
+  "list": "Lista",
+  "rename": "Átnevezés",
+  "about": "Névjegy",
+  "version": "1.0-s verzió",
+  "author": "Szerző",
+  "displayName": "Megjelenő név",
+  "deleteAsk": "Törlöd: {name}?",
+  "catalogMissing": "A SystemApp.json nem olvasható",
+  "systemApps": "Rendszerappok",
+  "appStore": "App Store",
+  "seeMore": "Több",
+  "suggest": "Javaslatok",
+  "aboutBody": "A webclip indító a Quick Launcher parancsikonon keresztül nyitja meg az appokat. Legfeljebb 8 appot adhatsz hozzá a rendszerlistából vagy az App Store-ból, és elküldheted a bundle ID-t a parancsikonnak. Cseréld a borítóképet, és húzással keretezd, válts rács és lista között, nevezd át a címkéket, és kövesd az eszköz világos vagy sötét megjelenését."
+}

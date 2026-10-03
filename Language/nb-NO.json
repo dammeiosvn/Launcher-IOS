@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Innstillinger",
+  "confirm": "Bekreft",
+  "choosePhoto": "Velg bilde",
+  "addApp": "Legg til app",
+  "searchPlaceholder": "Søk i apper",
+  "grid": "Rutenett",
+  "list": "Liste",
+  "rename": "Gi nytt navn",
+  "about": "Om",
+  "version": "Versjon 1.0",
+  "author": "Opphav",
+  "displayName": "Visningsnavn",
+  "deleteAsk": "Slette {name}?",
+  "catalogMissing": "Kunne ikke lese SystemApp.json",
+  "systemApps": "Systemapper",
+  "appStore": "App Store",
+  "seeMore": "Se mer",
+  "suggest": "Forslag",
+  "aboutBody": "Webclip-starteren åpner apper via snarveien Quick Launcher. Legg til opptil 8 apper fra systemlisten eller App Store og send bundle ID til snarveien. Bytt forsidebilde og dra for å ramme det inn, bytt mellom rutenett og liste, gi etikettene nytt navn, og følg enhetens lyse eller mørke utseende."
+}

@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Definições",
+  "confirm": "Confirmar",
+  "choosePhoto": "Escolher fotografia",
+  "addApp": "Adicionar aplicação",
+  "searchPlaceholder": "Procurar aplicações",
+  "grid": "Grelha",
+  "list": "Lista",
+  "rename": "Mudar o nome",
+  "about": "Acerca de",
+  "version": "Versão 1.0",
+  "author": "Autor",
+  "displayName": "Nome apresentado",
+  "deleteAsk": "Eliminar {name}?",
+  "catalogMissing": "Não foi possível ler SystemApp.json",
+  "systemApps": "Aplicações do sistema",
+  "appStore": "App Store",
+  "seeMore": "Ver mais",
+  "suggest": "Sugestões",
+  "aboutBody": "O iniciador webclip abre aplicações através do atalho Quick Launcher. Adicione até 8 aplicações da lista do sistema ou da App Store e envie o bundle ID para o atalho. Mude a fotografia de capa e arraste para a enquadrar, alterne entre grelha e lista, renomeie as etiquetas e siga a aparência clara ou escura do dispositivo."
+}

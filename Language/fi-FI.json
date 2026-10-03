@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Asetukset",
+  "confirm": "Vahvista",
+  "choosePhoto": "Valitse kuva",
+  "addApp": "Lisää sovellus",
+  "searchPlaceholder": "Hae sovelluksia",
+  "grid": "Ruudukko",
+  "list": "Luettelo",
+  "rename": "Nimeä uudelleen",
+  "about": "Tietoja",
+  "version": "Versio 1.0",
+  "author": "Tekijä",
+  "displayName": "Näyttönimi",
+  "deleteAsk": "Poistetaanko {name}?",
+  "catalogMissing": "SystemApp.json ei ollut luettavissa",
+  "systemApps": "Järjestelmäsovellukset",
+  "appStore": "App Store",
+  "seeMore": "Näytä lisää",
+  "suggest": "Ehdotukset",
+  "aboutBody": "Webclip-käynnistin avaa sovellukset Quick Launcher -pikakomennon kautta. Lisää enintään 8 sovellusta järjestelmäluettelosta tai App Storesta ja lähetä bundle ID pikakomennolle. Vaihda kansikuva ja rajaa se vetämällä, vaihda ruudukon ja luettelon välillä, nimeä tunnisteet uudelleen ja seuraa laitteen vaaleaa tai tummaa ulkoasua."
+}

@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Setări",
+  "confirm": "Confirmă",
+  "choosePhoto": "Alege o fotografie",
+  "addApp": "Adaugă o aplicație",
+  "searchPlaceholder": "Caută aplicații",
+  "grid": "Grilă",
+  "list": "Listă",
+  "rename": "Redenumește",
+  "about": "Despre",
+  "version": "Versiunea 1.0",
+  "author": "Autor",
+  "displayName": "Nume afișat",
+  "deleteAsk": "Ștergi {name}?",
+  "catalogMissing": "SystemApp.json nu a putut fi citit",
+  "systemApps": "Aplicații de sistem",
+  "appStore": "App Store",
+  "seeMore": "Vezi mai multe",
+  "suggest": "Sugestii",
+  "aboutBody": "Lansatorul webclip deschide aplicațiile prin scurtătura Quick Launcher. Adaugă până la 8 aplicații din lista de sistem sau din App Store și trimite bundle ID către scurtătură. Schimbă fotografia de copertă și trage pentru a o încadra, comută între grilă și listă, redenumește etichetele și urmează aspectul luminos sau întunecat al dispozitivului."
+}

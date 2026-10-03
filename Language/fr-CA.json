@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Réglages",
+  "confirm": "Confirmer",
+  "choosePhoto": "Choisir une photo",
+  "addApp": "Ajouter une app",
+  "searchPlaceholder": "Rechercher des apps",
+  "grid": "Grille",
+  "list": "Liste",
+  "rename": "Renommer",
+  "about": "À propos",
+  "version": "Version 1.0",
+  "author": "Auteur",
+  "displayName": "Nom affiché",
+  "deleteAsk": "Supprimer {name} ?",
+  "catalogMissing": "Impossible de lire SystemApp.json",
+  "systemApps": "Apps du système",
+  "appStore": "App Store",
+  "seeMore": "Voir plus",
+  "suggest": "Suggestions",
+  "aboutBody": "Le lanceur Webclip ouvre les apps via le raccourci Quick Launcher. Ajoutez jusqu’à 8 apps depuis la liste du système ou l’App Store et envoyez le bundle ID au raccourci. Changez la photo de couverture et faites-la glisser pour la cadrer, passez de la grille à la liste, renommez les libellés et suivez l’apparence claire ou sombre de l’appareil."
+}

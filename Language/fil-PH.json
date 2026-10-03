@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Mga setting",
+  "confirm": "Kumpirmahin",
+  "choosePhoto": "Pumili ng larawan",
+  "addApp": "Magdagdag ng app",
+  "searchPlaceholder": "Maghanap ng app",
+  "grid": "Grid",
+  "list": "Listahan",
+  "rename": "Palitan ang pangalan",
+  "about": "Tungkol",
+  "version": "Bersyon 1.0",
+  "author": "May-akda",
+  "displayName": "Pangalang ipinapakita",
+  "deleteAsk": "I-delete ang {name}?",
+  "catalogMissing": "Hindi mabasa ang SystemApp.json",
+  "systemApps": "Mga system app",
+  "appStore": "App Store",
+  "seeMore": "Tingnan pa",
+  "suggest": "Mga mungkahi",
+  "aboutBody": "Binubuksan ng webclip launcher ang mga app sa pamamagitan ng shortcut na Quick Launcher. Magdagdag ng hanggang 8 app mula sa listahan ng system o App Store at ipadala ang bundle ID sa shortcut. Palitan ang cover photo at i-drag para i-frame, lumipat sa grid o list, palitan ang pangalan ng label, at sundan ang light o dark na hitsura ng device."
+}

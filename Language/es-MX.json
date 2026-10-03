@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Ajustes",
+  "confirm": "Confirmar",
+  "choosePhoto": "Elegir foto",
+  "addApp": "Agregar app",
+  "searchPlaceholder": "Buscar apps",
+  "grid": "Cuadrícula",
+  "list": "Lista",
+  "rename": "Renombrar",
+  "about": "Acerca de",
+  "version": "Versión 1.0",
+  "author": "Autor",
+  "displayName": "Nombre visible",
+  "deleteAsk": "¿Eliminar {name}?",
+  "catalogMissing": "No se pudo leer SystemApp.json",
+  "systemApps": "Apps del sistema",
+  "appStore": "App Store",
+  "seeMore": "Ver más",
+  "suggest": "Sugerencias",
+  "aboutBody": "Lanzador webclip que abre apps mediante el atajo Quick Launcher. Agrega hasta 8 apps de la lista del sistema o del App Store y envía el bundle ID al atajo. Cambia la foto de portada y arrástrala para encuadrarla, alterna entre cuadrícula y lista, renombra las etiquetas y sigue la apariencia clara u oscura del dispositivo."
+}

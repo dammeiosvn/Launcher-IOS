@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "تنظیمات",
+  "confirm": "تأیید",
+  "choosePhoto": "انتخاب عکس",
+  "addApp": "افزودن برنامه",
+  "searchPlaceholder": "جستجوی برنامه‌ها",
+  "grid": "شبکه",
+  "list": "فهرست",
+  "rename": "تغییر نام",
+  "about": "درباره",
+  "version": "نسخه ۱.۰",
+  "author": "نویسنده",
+  "displayName": "نام نمایشی",
+  "deleteAsk": "{name} حذف شود؟",
+  "catalogMissing": "SystemApp.json خوانده نشد",
+  "systemApps": "برنامه‌های سیستم",
+  "appStore": "App Store",
+  "seeMore": "بیشتر",
+  "suggest": "پیشنهادها",
+  "aboutBody": "لانچر وب‌کلیپ برنامه‌ها را از میانبر Quick Launcher باز می‌کند. تا ۸ برنامه را از فهرست سیستم یا App Store اضافه کنید و bundle ID را به میانبر بفرستید. عکس جلد را عوض کنید و برای قاب‌بندی بکشید، بین نمای شبکه و فهرست جابه‌جا شوید، برچسب‌ها را تغییر نام دهید و ظاهر روشن یا تیره دستگاه را دنبال کنید."
+}

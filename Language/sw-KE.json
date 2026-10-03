@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Mipangilio",
+  "confirm": "Thibitisha",
+  "choosePhoto": "Chagua picha",
+  "addApp": "Ongeza programu",
+  "searchPlaceholder": "Tafuta programu",
+  "grid": "Gridi",
+  "list": "Orodha",
+  "rename": "Badilisha jina",
+  "about": "Kuhusu",
+  "version": "Toleo 1.0",
+  "author": "Mwandishi",
+  "displayName": "Jina linaloonekana",
+  "deleteAsk": "Unafuta {name}?",
+  "catalogMissing": "Imeshindwa kusoma SystemApp.json",
+  "systemApps": "Programu za mfumo",
+  "appStore": "App Store",
+  "seeMore": "Ona zaidi",
+  "suggest": "Mapendekezo",
+  "aboutBody": "Kizinduzi cha webclip hufungua programu kupitia njia ya mkato ya Quick Launcher. Ongeza hadi programu 8 kutoka kwenye orodha ya mfumo au App Store na utume bundle ID kwenye njia ya mkato. Badilisha picha ya jalada na uiburute ili uikadirie, badili kati ya gridi na orodha, badilisha majina ya lebo, na ufuate mwonekano wa kifaa wa mwanga au giza."
+}
