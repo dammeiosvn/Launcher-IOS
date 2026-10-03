@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "الإعدادات",
+  "confirm": "تأكيد",
+  "choosePhoto": "اختر صورة",
+  "addApp": "إضافة تطبيق",
+  "searchPlaceholder": "البحث عن التطبيق",
+  "grid": "شبكة",
+  "list": "قائمة",
+  "rename": "إعادة تسمية",
+  "about": "حول",
+  "version": "الإصدار 1.0",
+  "author": "المؤلف",
+  "aboutBody": "مشغل الويب لفتح التطبيقات عبر اختصار Quick Launcher. أضف حتى 8 تطبيقات من قائمة النظام أو App Store، وأرسل معرف الحزمة إلى الاختصار. قم بتغيير صورة الخلفية والسحب لضبطها داخل الإطار، التبديل بين الشبكة أو القائمة، إعادة تسمية الاسم المعروض، وتتطابق الواجهة تلقائياً مع وضع الإضاءة في الجهاز.",
+  "displayName": "الاسم المعروض",
+  "deleteAsk": "حذف {name}؟",
+  "catalogMissing": "تعذر قراءة SystemApp.json",
+  "systemApps": "تطبيقات النظام",
+  "appStore": "App Store",
+  "seeMore": "عرض المزيد",
+  "suggest": "اقتراح"
+}
