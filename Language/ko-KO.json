@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "설정",
+  "confirm": "확인",
+  "choosePhoto": "사진 선택",
+  "addApp": "앱 추가",
+  "searchPlaceholder": "앱 검색",
+  "grid": "그리드",
+  "list": "목록",
+  "rename": "이름 변경",
+  "about": "정보",
+  "version": "버전 1.0",
+  "author": "작성자",
+  "aboutBody": "Quick Launcher 단축어를 통해 앱을 여는 Webclip 런처입니다. 시스템 목록이나 App Store에서 최대 8개의 앱을 추가하고 번들 ID를 단축어로 전송합니다. 배경 이미지 변경 및 프레임 내 드래그 조정, 그리드 또는 목록 전환, 표시 이름 변경이 가능하며, 인터페이스는 기기의 라이트/다크 모드에 자동으로 맞춰집니다.",
+  "displayName": "표시 이름",
+  "deleteAsk": "{name}을(를) 삭제하시겠습니까?",
+  "catalogMissing": "SystemApp.json을 읽을 수 없습니다",
+  "systemApps": "시스템 앱",
+  "appStore": "App Store",
+  "seeMore": "더 보기",
+  "suggest": "추천"
+}
