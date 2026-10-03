@@ -6,8 +6,8 @@ Mở app trên iPhone từ một dock riêng. Gắn lên màn hình chính, bấ
 
 <p>
   <img src="docs/Demo_1.png" width="240" alt="Icon Launcher trên màn hình chính">
-  <img src="Demo_2.png" width="240" alt="Dock 8 app, ảnh nền và đồng hồ">
-  <img src="docs/picker.jpg" width="240" alt="Tìm app hệ thống để thêm vào dock">
+  <img src="docs/Demo_2.png" width="240" alt="Dock 8 app, ảnh nền và đồng hồ">
+  <img src="docs/Demo_3.png" width="240" alt="Tìm app hệ thống để thêm vào dock">
 </p>
 
 Ảnh trên là minh họa bố cục, không phải ảnh chụp máy.
