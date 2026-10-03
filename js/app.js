@@ -75,7 +75,7 @@ function weekIndex() {
   return Math.ceil((((utc - yearStart) / 86400000) + 1) / 7);
 }
 
-const QUOTE_MARKS = { "vi-VN": ["„", "“"], "en-GB": ["„", "”"] };
+const QUOTE_MARKS = { "vi-VN": ["“", "„"], "en-GB": ["“", "„"] };
 function wrapQuote(text) {
   const pair = QUOTE_MARKS[lang] || ["„", "”"];
   const clean = String(text).replace(/^[\s"'“”„‟«»]+|[\s"'“”„‟«»]+$/g, "");
