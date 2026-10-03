@@ -36,6 +36,7 @@ let hintT, renaming = false, drag = null;
 let i18n = {};
 let lang = FALLBACK;
 let quoteWeek = -1;
+let quotes = [];
 let sysPage = 1;
 let online = [];
 let onlineTitle = "";
@@ -75,7 +76,6 @@ function weekIndex() {
 }
 
 function paintQuote() {
-  const quotes = i18n.quotes || [];
   if (!quotes.length) return;
   const week = weekIndex();
   quoteWeek = week;
@@ -119,6 +119,15 @@ function fetchPack(code) {
   });
 }
 
+function fetchQuotes(code) {
+  return fetch("quotes/" + code + ".json").then(function (r) {
+    if (!r.ok) throw new Error("missing");
+    return r.json();
+  }).then(function (list) {
+    return Array.isArray(list) ? list : [];
+  });
+}
+
 function bootI18n() {
   const code = resolveLang();
   return fetchPack(code).then(function (pack) {
@@ -127,7 +136,12 @@ function bootI18n() {
   }).catch(function () {
     lang = FALLBACK;
     return fetchPack(FALLBACK).then(function (pack) { i18n = pack; }).catch(function () { i18n = {}; });
-  }).then(applyI18n);
+  }).then(function () {
+    return fetchQuotes(lang).catch(function () { return fetchQuotes(FALLBACK); }).catch(function () { return []; });
+  }).then(function (list) {
+    quotes = list;
+    applyI18n();
+  });
 }
 
 function paintBg() { art.style.backgroundImage = "url(" + (localStorage.getItem(BG) || ILLU) + ")"; art.style.backgroundPosition = "center"; }
