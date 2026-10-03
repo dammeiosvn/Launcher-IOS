@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "设置",
+  "confirm": "确认",
+  "choosePhoto": "选择照片",
+  "addApp": "添加应用",
+  "searchPlaceholder": "搜索应用",
+  "grid": "网格",
+  "list": "列表",
+  "rename": "重命名",
+  "about": "关于",
+  "version": "版本 1.0",
+  "author": "作者",
+  "aboutBody": "Webclip 启动器，通过 Quick Launcher 快捷指令打开应用。从系统列表或 App Store 添加最多 8 个应用，发送 bundle ID 至快捷指令。更改背景图片并在框内拖动调整，切换网格或列表视图，修改显示名称，界面根据设备自动适应浅色/深色模式。",
+  "displayName": "显示名称",
+  "deleteAsk": "删除 {name}？",
+  "catalogMissing": "无法读取 SystemApp.json",
+  "systemApps": "系统应用",
+  "appStore": "App Store",
+  "seeMore": "查看更多",
+  "suggest": "推荐"
+}
