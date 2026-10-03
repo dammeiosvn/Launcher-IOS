@@ -75,11 +75,17 @@ function weekIndex() {
   return Math.ceil((((utc - yearStart) / 86400000) + 1) / 7);
 }
 
+const QUOTE_MARKS = { "vi-VN": ["„", "“"], "en-GB": ["„", "”"] };
+function wrapQuote(text) {
+  const pair = QUOTE_MARKS[lang] || ["„", "”"];
+  const clean = String(text).replace(/^[\s"'“”„‟«»]+|[\s"'“”„‟«»]+$/g, "");
+  return pair[0] + clean + pair[1];
+}
 function paintQuote() {
   if (!quotes.length) return;
   const week = weekIndex();
   quoteWeek = week;
-  document.getElementById("quote").textContent = quotes[week % quotes.length];
+  document.getElementById("quote").textContent = wrapQuote(quotes[week % quotes.length]);
 }
 
 function tick() {
