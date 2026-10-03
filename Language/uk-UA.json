@@ -1,0 +1,23 @@
+{
+  "appName": "Launcher iOS",
+  "shortName": "Launcher",
+  "settings": "Inställningar",
+  "confirm": "Bekräfta",
+  "choosePhoto": "Välj foto",
+  "addApp": "Lägg till app",
+  "searchPlaceholder": "Sök appar",
+  "grid": "Rutnät",
+  "list": "Lista",
+  "rename": "Byt namn",
+  "about": "Om",
+  "version": "Version 1.0",
+  "author": "Författare",
+  "aboutBody": "Webclip-startare för att öppna appar via genvägen Quick Launcher. Lägg till upp till 8 appar från systemlistan eller App Store, skicka bundle-ID till genvägen. Byt bakgrundsbild och dra för att justera i ramen, växla mellan rutnät eller lista, byt visningsnamn, gränssnittet anpassar sig automatiskt efter enhetens ljust/mörkt läge.",
+  "displayName": "Visningsnamn",
+  "deleteAsk": "Ta bort {name}?",
+  "catalogMissing": "Kunde inte läsa SystemApp.json",
+  "systemApps": "Systemappar",
+  "appStore": "App Store",
+  "seeMore": "Visa mer",
+  "suggest": "Förslag"
+}
