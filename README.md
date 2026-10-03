@@ -5,21 +5,16 @@ Mở app trên iPhone từ một dock riêng. Gắn lên màn hình chính, bấ
 [Mở trang](https://dammeiosvn.github.io/Launcher-IOS/) · [Tải hồ sơ cài](https://dammeiosvn.github.io/Launcher-IOS/LauncherIOS.mobileconfig)
 
 <p>
-  <img src="docs/webclip.jpg" width="240" alt="Icon Launcher trên màn hình chính">
-  <img src="docs/home.jpg" width="240" alt="Dock 8 app, ảnh nền và đồng hồ">
+  <img src="docs/Demo_1.png" width="240" alt="Icon Launcher trên màn hình chính">
+  <img src="Demo_2.png" width="240" alt="Dock 8 app, ảnh nền và đồng hồ">
   <img src="docs/picker.jpg" width="240" alt="Tìm app hệ thống để thêm vào dock">
 </p>
 
 Ảnh trên là minh họa bố cục, không phải ảnh chụp máy.
 
-## Cài
-
-1. Trên iPhone, bấm [Tải LauncherIOS.mobileconfig](https://dammeiosvn.github.io/Launcher-IOS/LauncherIOS.mobileconfig).
+## [Cài đặt](https://dammeiosvn.github.io/Launcher-IOS/LauncherIOS.mobileconfig)
 2. Cho phép Safari tải hồ sơ.
 3. Vào **Cài đặt → Đã tải về hồ sơ**, chọn **Launcher IOS**, bấm **Cài đặt**.
-4. Mở [trang](https://dammeiosvn.github.io/Launcher-IOS/), **Chia sẻ → Thêm vào Màn hình chính**.
-
-Link dự phòng nếu Safari không nhận hồ sơ: [bản raw trên GitHub](https://github.com/dammeiosvn/Launcher-IOS/raw/main/LauncherIOS.mobileconfig).
 
 Hồ sơ chỉ mở webclip và icon. Không xin quyền khác.
 
