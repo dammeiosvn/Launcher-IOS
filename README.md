@@ -18,7 +18,7 @@ Hồ sơ chỉ mở webclip và icon. Không xin quyền khác.
 
 ## Cần có
 
-Shortcut phải tên đúng **Quick Launcher**. Dock gửi bundle ID sang shortcut:
+Shortcut phải tên đúng **[Quick Launcher](https://www.icloud.com/shortcuts/a6c7045eac764ba4ade693e7b296b948)**. Dock gửi bundle ID sang shortcut:
 
 ```text
 shortcuts://run-shortcut?name=Quick%20Launcher&input=text&text=BUNDLE_ID
