@@ -134,18 +134,24 @@ function fetchQuotes(code) {
   });
 }
 
+function cacheGet(key) { try { return JSON.parse(localStorage.getItem(key) || "null"); } catch (e) { return null; } }
 function bootI18n() {
   const code = resolveLang();
-  return fetchPack(code).then(function (pack) {
+  const pack = cacheGet("ql_i18n_" + code);
+  const cachedQuotes = cacheGet("ql_quotes_" + code);
+  if (pack) { lang = code; i18n = pack; quotes = cachedQuotes || []; applyI18n(); }
+  return fetchPack(code).then(function (next) {
     lang = code;
-    i18n = pack;
+    i18n = next;
+    localStorage.setItem("ql_i18n_" + code, JSON.stringify(next));
   }).catch(function () {
     lang = FALLBACK;
-    return fetchPack(FALLBACK).then(function (pack) { i18n = pack; }).catch(function () { i18n = {}; });
+    return fetchPack(FALLBACK).then(function (next) { i18n = next; }).catch(function () { i18n = i18n || {}; });
   }).then(function () {
-    return fetchQuotes(lang).catch(function () { return fetchQuotes(FALLBACK); }).catch(function () { return []; });
+    return fetchQuotes(lang).catch(function () { return fetchQuotes(FALLBACK); }).catch(function () { return quotes || []; });
   }).then(function (list) {
     quotes = list;
+    try { localStorage.setItem("ql_quotes_" + lang, JSON.stringify(list)); } catch (e) {}
     applyI18n();
   });
 }
@@ -373,6 +379,6 @@ fetch(JSON_URL).then(function (r) { if (!r.ok) throw new Error("missing"); retur
 });
 
 paintBg();
-showHint();
-bootI18n().then(render);
-setInterval(tick, 10000);
+render();
+bootI18n();
+setInterval(tick, 30000);
