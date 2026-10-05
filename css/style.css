@@ -108,10 +108,11 @@ h1 {
 .sheet {
   left: 0; right: 0; bottom: 0; border-radius: 18px 18px 0 0;
   padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
-  transform: translateY(110%); transition: transform .25s ease; max-height: 78%;
-  display: flex; flex-direction: column; gap: 10px; color: var(--ink);
+  max-height: 78%; display: none; flex-direction: column; gap: 10px; color: var(--ink);
+  transform: none; -webkit-backdrop-filter: none; backdrop-filter: none;
 }
-.sheet.on, .pop.on { transform: none; }
+.sheet.on { display: flex; }
+.pop.on { transform: none; }
 .pop {
   right: 16px; top: calc(58px + env(safe-area-inset-top)); bottom: auto;
   width: min(240px, calc(100vw - 32px));
@@ -121,6 +122,7 @@ h1 {
 .pop.on { display: flex; }
 .sheet input, .namebox {
   width: 100%; border: 1px solid #e3e6ea; border-radius: 12px; padding: 12px 14px; font-size: 16px; background: #fff; color: #111;
+  pointer-events: auto; -webkit-user-select: text; user-select: text; touch-action: manipulation;
 }
 .results { overflow: auto; display: flex; flex-direction: column; gap: 8px; }
 .hit { display: flex; gap: 10px; align-items: center; border: 0; background: rgba(255,255,255,.72); border-radius: 12px; padding: 8px; text-align: left; color: #111; }

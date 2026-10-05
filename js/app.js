@@ -254,6 +254,7 @@ function openSheet() {
   sheet.classList.add("on");
   q.value = "";
   paintResults("");
+  q.focus();
 }
 function closeSheet() { mask.classList.remove("on"); sheet.classList.remove("on"); menu.classList.remove("on"); info.classList.remove("on"); }
 function closePops() { menu.classList.remove("on"); info.classList.remove("on"); }
